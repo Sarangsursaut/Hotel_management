@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h2>Welcome, {{ user.username }}</h2>
+    <a class="btn btn-primary" href="{% url 'submit_hotel' %}">Submit New Hotel</a>
+    <a class="btn btn-secondary" href="{% url 'owner_my_hotels' %}">My Hotels</a>
+    <a class="btn btn-danger" href="{% url 'owner_logout' %}">Logout</a>
+</div>
+{% endblock %}
+
+{% comment %} "
+"
+ {% endcomment %}

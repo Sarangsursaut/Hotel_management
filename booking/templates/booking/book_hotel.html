@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Book: {{ hotel.name }}</h2>
+    <p><strong>Location:</strong> {{ hotel.location }}</p>
+    <p><strong>Price:</strong> ₹{{ hotel.price_per_night }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <button class="btn btn-success">Confirm Booking</button>
+    </form>
+</div>
+{% endblock %}

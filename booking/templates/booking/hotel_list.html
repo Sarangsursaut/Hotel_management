@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Available Hotels</h2>
+    <ul class="list-group">
+        {% for hotel in hotels %}
+        <li class="list-group-item">
+            <h4>{{ hotel.name }}</h4>
+            <p><strong>Location:</strong> {{ hotel.location }}</p>
+            <p><strong>Price/Night:</strong> ₹{{ hotel.price_per_night }}</p>
+            <a href="{% url 'book_hotel' hotel.id %}" class="btn btn-primary">Book Now</a>
+        </li>
+        {% empty %}
+        <li class="list-group-item">No approved hotels available.</li>
+        {% endfor %}
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn btn-success">Confirm Booking</button>
+        </form>
+
+    </ul>
+</div>
+{% endblock %}

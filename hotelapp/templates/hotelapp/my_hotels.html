@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h2>My Submitted Hotels</h2>
+    {% for hotel in hotels %}
+    <div class="card mt-3">
+        <div class="card-body">
+            <h4>{{ hotel.name }}</h4>
+            <p>{{ hotel.location }} | ₹{{ hotel.price_per_night }}</p>
+            <p>Status: 
+              {% if hotel.is_approved %}
+                ✅ Approved
+              {% else %}
+                ⏳ Pending Admin Approval
+              {% endif %}
+            </p>
+
+              <h6>Bookings:</h6>
+            <ul>
+              {% for booking in hotel.hotelbooking_set.all %}
+                <li>{{ booking.customer_name }} ({{ booking.booked_at|date:"d M Y H:i" }})</li>
+              {% empty %}
+                <li>No bookings yet.</li>
+              {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

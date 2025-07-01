@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container text-center mt-5">
+    <h1 class="display-4 fw-bold">Welcome to Hotel Booking Platform</h1>
+    <p class="lead mt-3">Browse hotels, register your property, or book your stay today.</p>
+    
+    <div class="d-flex justify-content-center mt-4 gap-3">
+        <a href="{% url 'login' %}" class="btn btn-outline-primary">Login</a>
+        <a href="{% url 'register' %}" class="btn btn-outline-success">Register</a>
+        <a href="{% url 'home' %}" class="btn btn-primary">Browse Hotels</a>
+    </div>
+</div>
+{% endblock %}
